@@ -2,7 +2,7 @@
 #include "main.h"
 
 class Student {
-public:
+private:
 	string firstname;
 	string surname;
 	int age;
@@ -13,7 +13,8 @@ public:
 	int size;
 	string* subjects;
 
-	
+public:
+
 	Student() : Student("no name", "no surname") {
 		//cout << "default-constructor" << endl;
 	}
@@ -53,6 +54,61 @@ public:
 		// cout << "destructor" << endl;
 		if (subjects != nullptr) {
 			delete[] subjects;
+		}
+	}
+
+
+	string getFirstName() {
+		return firstname;
+	}
+
+	void setFirstName(string firstname) {
+		this->firstname = firstname;
+	}
+
+	string getSurname() {
+		return surname;
+	}
+
+	void setSurname(string surname) {
+		this->setSurname = surname;
+	}
+
+	int getAge() {
+		return age;
+	}
+
+	void setAge(int age) {
+		if (age > 0) {
+			this->age = age;
+		}
+	}
+
+	int getClass() {
+		return _class;
+	}
+
+	void setClass(int _class) {
+		if (_class >= 1 && _class <= 11) {
+			this->_class = _class;
+		}
+	}
+
+	bool isAlive() {
+		return alive;
+	}
+
+	void setAlive(bool alive) {
+		this->alive = alive;
+	}
+
+	double getMark() {
+		return mark;
+	}
+
+	void setMark(int mark) {
+		if (mark >= 0 && mark <= 10) {
+			this->mark = mark;
 		}
 	}
 

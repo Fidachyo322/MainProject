@@ -4,7 +4,8 @@ using namespace std;
 
 class Dragon {
 private:
-
+	int age;
+	int head;
 
 	void calculateHeads() {
 		int age;

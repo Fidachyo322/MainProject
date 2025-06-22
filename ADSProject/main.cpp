@@ -1,24 +1,24 @@
-#include "Queue.h"
+#include "Stack.h"
 
 int main() {
-	Queue queue;
+	Stack stack;
 
 	cout << "Imput your numbers(0 - for exit): ";
 	int number;
 
 	do {
 		cin >> number;
-		queue.enqueue(number);
+		stack.push(number);
 	} while (number != 0);
 
-	queue.dequeue();
-	queue.dequeue();
+	stack.pop();
+	stack.pop();
 
-	cout << "Head:" << queue.head() << endl;
-	cout << "Queue elements: " << queue.toString() << endl;
+	cout << "Head:" << stack.head() << endl;
+	cout << "Queue elements: " << stack.toString() << endl;
 
-	queue.clear();
-	cout << "Queue elements: " << queue.toString() << endl;
+	stack.clear();
+	cout << "Queue elements: " << stack.toString() << endl;
 
 	return 0;
 }

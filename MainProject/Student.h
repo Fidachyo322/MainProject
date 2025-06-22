@@ -14,11 +14,7 @@ private:
 	string* subjects;
 
 public:
-
-	Student() : Student("no name", "no surname") {
-		//cout << "default-constructor" << endl;
-	}
-
+	Student() : Student("no name", "no surname") { }
 	Student(string firstname, string surname) : firstname(firstname),
 		surname(surname), age(0), _class(0), gender('m'), alive(false),
 		mark(0), size(0), subjects(nullptr) {
@@ -31,18 +27,7 @@ public:
 	}
 
 	Student(string firstname, string surname, int age, int _class,
-		char gender, bool alive, double mark, int size, string* subjects) {
-		//cout << "canonical constructor" << endl;
-		this->firstname = firstname;
-		this->surname = surname;
-		this->age = age;
-		this->_class = _class;
-		this->gender = gender;
-		this->alive = alive;
-		this->mark = mark;
-		this->size = size;
-		this->subjects = subjects;
-	}
+		char gender, bool alive, double mark, int size, string* subjects);
 
 	Student(const Student& student) : Student(student.firstname,
 		student.surname, student.age, student._class, student.gender,
@@ -50,77 +35,22 @@ public:
 		//cout << "canonical constructor" << endl;
 	}
 
-	~Student() {
-		// cout << "destructor" << endl;
-		if (subjects != nullptr) {
-			delete[] subjects;
-		}
-	}
+	~Student();
 
+	string getFirstName();
+	void setFirstName(const string firstname);
+	string getSurname();
+	void setSurname(const string surname);
+	int getAge();
+	void setAge(int age);
+	int getClass();
+	void setClass(int _class);
+	bool isAlive();
+	void setAlive(bool alive);
+	double getMark();
+	void setMark(int mark);
+	char getGender();
+	void setGender(char gender);
 
-	string getFirstName() {
-		return firstname;
-	}
-
-	void setFirstName(string firstname) {
-		this->firstname = firstname;
-	}
-
-	string getSurname() {
-		return surname;
-	}
-
-	void setSurname(string surname) {
-		this->setSurname = surname;
-	}
-
-	int getAge() {
-		return age;
-	}
-
-	void setAge(int age) {
-		if (age > 0) {
-			this->age = age;
-		}
-	}
-
-	int getClass() {
-		return _class;
-	}
-
-	void setClass(int _class) {
-		if (_class >= 1 && _class <= 11) {
-			this->_class = _class;
-		}
-	}
-
-	bool isAlive() {
-		return alive;
-	}
-
-	void setAlive(bool alive) {
-		this->alive = alive;
-	}
-
-	double getMark() {
-		return mark;
-	}
-
-	void setMark(int mark) {
-		if (mark >= 0 && mark <= 10) {
-			this->mark = mark;
-		}
-	}
-
-	string toString() {
-		string s = firstname;
-		s += " " + surname + ".";
-		s += ", age = " + to_string(age);
-		s += ", class = " + to_string(_class);
-		s += ", gender = " + to_string(gender);
-		s += ", is alive - ";
-		s += (alive ? "yes" : "no");
-		s += ", average mark = " + to_string(mark);
-		return s;
-	}
+	string toString();
 };
